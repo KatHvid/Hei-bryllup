@@ -63,7 +63,7 @@
     const meny = [
       "Forrett: Bruschetta med tomat og basilikum",
       "Hovedrett: Lammeskank med rotgrønnsaker",
-      "Dessert: Sjokolademousse med bringebær"
+      "Dessert: Sjokolademousse med jordbær"
     ];
 
     const ul = document.getElementById("meny");
