@@ -7,44 +7,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* --- Bakgrunn med subtilt mønster --- */
-    :root{
-      --paper: #f7f9fb;
-      --ink: #2f2f2f;
-      --accent: #000; /* brukes lite – teksten er hovedsakelig mørk grå */
-    }
-    html, body {
-      height: 100%;
-    }
     body{
       margin:0;
-      color:var(--ink);
-      background:
-        /* lys “papir”-tone */
-        linear-gradient(#f7fbff, #f5f8fb) fixed;
-      /* lag et diskret “damask”-aktig mønster via innebygd SVG (lys grå) */
-      background-image:
-        url("data:image/svg+xml;utf8,\
-        <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
-          <defs>\
-            <g id='motif' fill='none' stroke='%23cfd8dc' stroke-opacity='0.4' stroke-width='1.2'>\
-              <path d='M60 10c10 12 18 18 18 30s-8 22-18 22-18-10-18-22 8-18 18-30z'/>\
-              <path d='M24 60c12-10 18-18 30-18s22 8 22 18-10 18-22 18-18-8-30-18z'/>\
-              <path d='M60 110c-10-12-18-18-18-30s8-22 18-22 18 10 18 22-8 18-18 30z'/>\
-              <path d='M96 60c-12 10-18 18-30 18s-22-8-22-18 10-18 22-18 18 8 30 18z'/>\
-            </g>\
-          </defs>\
-          <rect width='120' height='120' fill='none'/>\
-          <use href='%23motif'/>\
-        </svg>");
-      background-size: 260px 260px, auto;
-      background-repeat: repeat;
+      color:#2f2f2f;
+      font-family: "Libre Baskerville", serif;
+      background: #eaf4fb url('https://www.toptal.com/designers/subtlepatterns/uploads/watercolor.png') center/cover no-repeat fixed;
       display:flex;
-      align-items:flex-start;
       justify-content:center;
     }
 
-    /* --- Selve menyen --- */
     .menu-wrap{
       width:min(92%, 520px);
       margin:32px auto 48px;
@@ -59,13 +30,22 @@
     .title{
       font-family: "Great Vibes", cursive;
       font-size: clamp(36px, 6.2vw, 56px);
-      margin: 6px 0 18px;
+      margin: 6px 0 36px; /* mer luft under "Meny" */
       color:#333;
     }
 
     .section{
-      margin: 26px 0 22px;
+      margin: 18px 0; /* standard luft */
     }
+
+    .section:nth-of-type(2) {
+      margin-top: 36px; /* ekstra luft før Hovedrett */
+    }
+
+    .section:nth-of-type(3) {
+      margin-top: 36px; /* ekstra luft før Dessert */
+    }
+
     .section h2{
       font-family: "Great Vibes", cursive;
       font-weight: 400;
@@ -73,24 +53,20 @@
       margin: 12px 0 6px;
       color:#333;
     }
+
     .rule{
       width: 70%;
-      height: 1px;
+      height: 0.5px; /* tynnere linje */
       margin: 8px auto 14px;
-      background: linear-gradient(to right, transparent, rgba(0,0,0,0.15), transparent);
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.25), transparent);
     }
+
     .desc{
-      font-family: "Libre Baskerville", serif;
       font-size: clamp(15px, 3.5vw, 17px);
       line-height: 1.5;
       color:#222;
       margin: 0 auto;
       max-width: 34ch;
-    }
-
-    /* Litt luft nederst på små skjermer */
-    @media (max-width: 420px){
-      .menu-wrap{ padding: 28px 18px 34px; }
     }
   </style>
 </head>
