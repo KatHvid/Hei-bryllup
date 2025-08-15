@@ -1,77 +1,126 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maten i bryllupet</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meny</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #f0fff0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    /* --- Bakgrunn med subtilt mønster --- */
+    :root{
+      --paper: #f7f9fb;
+      --ink: #2f2f2f;
+      --accent: #000; /* brukes lite – teksten er hovedsakelig mørk grå */
+    }
+    html, body {
+      height: 100%;
+    }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        /* lys “papir”-tone */
+        linear-gradient(#f7fbff, #f5f8fb) fixed;
+      /* lag et diskret “damask”-aktig mønster via innebygd SVG (lys grå) */
+      background-image:
+        url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
+          <defs>\
+            <g id='motif' fill='none' stroke='%23cfd8dc' stroke-opacity='0.4' stroke-width='1.2'>\
+              <path d='M60 10c10 12 18 18 18 30s-8 22-18 22-18-10-18-22 8-18 18-30z'/>\
+              <path d='M24 60c12-10 18-18 30-18s22 8 22 18-10 18-22 18-18-8-30-18z'/>\
+              <path d='M60 110c-10-12-18-18-18-30s8-22 18-22 18 10 18 22-8 18-18 30z'/>\
+              <path d='M96 60c-12 10-18 18-30 18s-22-8-22-18 10-18 22-18 18 8 30 18z'/>\
+            </g>\
+          </defs>\
+          <rect width='120' height='120' fill='none'/>\
+          <use href='%23motif'/>\
+        </svg>");
+      background-size: 260px 260px, auto;
+      background-repeat: repeat;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 2rem 3rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      text-align: center;
-      max-width: 500px;
+    /* --- Selve menyen --- */
+    .menu-wrap{
+      width:min(92%, 520px);
+      margin:32px auto 48px;
+      padding:36px 26px 40px;
+      background:rgba(255,255,255,0.75);
+      border-radius:18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+      backdrop-filter: blur(2px);
+      text-align:center;
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      color: #b22222;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .title{
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(36px, 6.2vw, 56px);
+      margin: 6px 0 18px;
+      color:#333;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1.2rem;
-      color: #333;
+    .section{
+      margin: 26px 0 22px;
+    }
+    .section h2{
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-size: clamp(28px, 5.2vw, 40px);
+      margin: 12px 0 6px;
+      color:#333;
+    }
+    .rule{
+      width: 70%;
+      height: 1px;
+      margin: 8px auto 14px;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.15), transparent);
+    }
+    .desc{
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(15px, 3.5vw, 17px);
+      line-height: 1.5;
+      color:#222;
+      margin: 0 auto;
+      max-width: 34ch;
     }
 
-    li {
-      margin: 0.5rem 0;
-      position: relative;
-    }
-
-    li::before {
-      content: "💖";
-      position: absolute;
-      left: -2rem;
+    /* Litt luft nederst på små skjermer */
+    @media (max-width: 420px){
+      .menu-wrap{ padding: 28px 18px 34px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Maten i bryllupet</h1>
-    <ul id="meny"></ul>
-  </div>
+  <main class="menu-wrap">
+    <h1 class="title">Meny</h1>
 
-  <script>
-    // Her kan du enkelt endre menyen:
-    const meny = [
-      "Forrett: Bruschetta med tomat og basilikum",
-      "Hovedrett: Lammeskank med rotgrønnsaker",
-      "Dessert: Sjokolademousse med jordbær"
-    ];
+    <section class="section">
+      <h2>Forrett</h2>
+      <div class="rule"></div>
+      <p class="desc">
+        Laks, sprø grønnsaker, noe mere
+      </p>
+    </section>
 
-    const ul = document.getElementById("meny");
-    meny.forEach(ret => {
-      const li = document.createElement("li");
-      li.textContent = ret;
-      ul.appendChild(li);
-    });
-  </script>
+    <section class="section">
+      <h2>Hovedrett</h2>
+      <div class="rule"></div>
+      <p class="desc">
+        Legg inn hovedrett, med tilbehør
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Dessert</h2>
+      <div class="rule"></div>
+      <p class="desc">
+        Vaniljeis med something
+      </p>
+    </section>
+  </main>
 </body>
 </html>
