@@ -11,7 +11,15 @@
       margin:0;
       color:#2f2f2f;
       font-family: "Libre Baskerville", serif;
-      background: #eaf4fb url('https://www.toptal.com/designers/subtlepatterns/uploads/watercolor.png') center/cover no-repeat fixed;
+
+      /* Lys blå "akvarell" bakgrunn uten prikker */
+      background:
+        radial-gradient(60% 40% at 20% 18%, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0) 60%),
+        radial-gradient(50% 50% at 80% 28%, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0) 65%),
+        radial-gradient(70% 60% at 40% 82%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 70%),
+        linear-gradient(#eef6fd, #e8f2fb);
+      background-attachment: fixed;
+
       display:flex;
       justify-content:center;
     }
@@ -30,20 +38,20 @@
     .title{
       font-family: "Great Vibes", cursive;
       font-size: clamp(36px, 6.2vw, 56px);
-      margin: 6px 0 36px; /* mer luft under "Meny" */
+      margin: 6px 0 50px; /* mer luft under "Meny" */
       color:#333;
     }
 
     .section{
-      margin: 18px 0; /* standard luft */
+      margin: 18px 0;
     }
 
     .section:nth-of-type(2) {
-      margin-top: 36px; /* ekstra luft før Hovedrett */
+      margin-top: 50px; /* ekstra luft før Hovedrett */
     }
 
     .section:nth-of-type(3) {
-      margin-top: 36px; /* ekstra luft før Dessert */
+      margin-top: 50px; /* ekstra luft før Dessert */
     }
 
     .section h2{
